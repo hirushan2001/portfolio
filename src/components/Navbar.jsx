@@ -1,36 +1,20 @@
 import React from 'react';
-import { Menu, Layout } from 'antd';
-import { HomeOutlined, UserOutlined, ProjectOutlined, MailOutlined } from '@ant-design/icons';
+import { Button } from 'antd';
 import './Navbar.css';
 
-const { Header } = Layout;
-
 const Navbar = () => {
-  const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
-    <Header>
-      <div className="logo" />
-      <Menu theme="dark" mode="horizontal">
-        <Menu.Item key="home" icon={<HomeOutlined />} onClick={() => scrollToSection('home')}>
-          Home
-        </Menu.Item>
-        <Menu.Item key="about" icon={<UserOutlined />} onClick={() => scrollToSection('about')}>
-          About
-        </Menu.Item>
-        <Menu.Item key="projects" icon={<ProjectOutlined />} onClick={() => scrollToSection('projects')}>
-          Projects
-        </Menu.Item>
-        <Menu.Item key="contact" icon={<MailOutlined />} onClick={() => scrollToSection('contact')}>
-          Contact
-        </Menu.Item>
-      </Menu>
-    </Header>
+    <nav className="navbar">
+      <div className="logo">Hirushan<span className="logo-dot">.</span></div>
+      <div className="nav-links">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#resume">Resume</a>
+        <a href="#work">Work</a>
+        <a href="#contact">Contact</a>
+        <Button type="primary" className="hire-me-btn">Hire me</Button>
+      </div>
+    </nav>
   );
 };
 
