@@ -1,0 +1,65 @@
+/* src/pages/Home.css */
+
+.home-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background-color: #ffffff; /* or any other base color you prefer */
+}
+
+.home-content {
+  text-align: left;
+  color: #1b5e20;
+  max-width: 1000px; /* Increased from 800px */
+  width: 100%;
+  padding: 60px; /* Increased from 40px */
+}
+
+.home-greeting {
+  font-size: 3em !important; /* Increased from 2.5em */
+  margin-bottom: 15px !important; /* Increased from 10px */
+  font-weight: 300 !important;
+  letter-spacing: 2px;
+  color: #2e7d32;
+}
+
+.home-name {
+  font-size: 5em !important; /* Increased from 4em */
+  font-weight: 700 !important;
+  margin-bottom: 30px !important; /* Increased from 20px */
+  background: linear-gradient(45deg, #43a047, #1b5e20);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.home-paragraph {
+  font-size: 1.4em !important; /* Increased from 1.2em */
+  line-height: 1.8 !important;
+  margin-bottom: 20px !important; /* Increased from 15px */
+  color: #33691e;
+}
+
+.home-highlight {
+  color: #00897b;
+  font-weight: 600;
+  position: relative;
+  display: inline-block;
+}
+
+.home-highlight::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #00897b;
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.home-highlight:hover::after {
+  transform: scaleX(1);
+}
