@@ -9,8 +9,8 @@ const Home = () => {
     <div className="home-container" id="home">
       <main className="main-content">
         <div className="left-content">
-          <p className="job-title animate-text">Software Developer</p>
           <h1 className="greeting animate-text">Hello I'm<br /><span className="name animate-text">Dhananjana Hirushan</span></h1>
+          <h2 className="job-title animate-text">I'm a <span style={{ color: '#00ff9d' }}>Frontend Devleloper</span></h2>
           <p className="description animate-text">
             I excel at crafting elegant digital experiences and<br />
             I am proficient in various programming languages and technologies.
