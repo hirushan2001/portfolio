@@ -6,6 +6,7 @@ import About from './pages/About';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
 import Footer from './components/Footer';
+import Skills from './pages/Skills';
 import './Layout.css';
 
 const { Content } = Layout;
@@ -17,6 +18,7 @@ function App() {
       <Content className="content">
         <Home />
         <About />
+        <Skills />
         <Projects />
         <Contact />
       </Content>
