@@ -3,24 +3,42 @@ import { Button } from 'antd';
 import { DownloadOutlined, GithubOutlined, LinkedinOutlined, MailOutlined, TwitterOutlined } from '@ant-design/icons';
 import './Home.css';
 import img from '../assets/mypic.png';
+import cvFile from '../assets/mycv.pdf';
 
 const Home = () => {
+
+  const handleDownload = () => {
+    window.open(cvFile, '_blank', 'noopener,noreferrer');
+  };
+
+  const handleEmailClick = (e) => {
+    e.preventDefault();
+    window.location.href = 'mailto:your.email@example.com?subject=Inquiry from Portfolio Website';
+  };
+
   return (
     <div className="home-container" id="home">
       <main className="main-content">
         <div className="left-content">
           <h1 className="greeting animate-text">Hello I'm<br /><span className="name animate-text">Dhananjana Hirushan</span></h1>
-          <h2 className="job-title animate-text">I'm a <span style={{ color: '#00ff9d' }}>Frontend Devleloper</span></h2>
+          <div className="wrapper">
+          <div className="job-title animate-text">I'm a</div>
+            <ul className='list animate-text'>
+              <li><span>Full Stack Developer</span></li>
+              <li><span>Frontend Developer</span></li>
+              <li><span>Backend Developer</span></li>
+            </ul>
+          </div>
           <p className="description animate-text">
             I excel at crafting elegant digital experiences and<br />
             I am proficient in various programming languages and technologies.
           </p>
-          <Button icon={<DownloadOutlined />} className="download-cv-btn animate-button">DOWNLOAD CV</Button>
+          <Button icon={<DownloadOutlined />} className="download-cv-btn animate-button"  onClick={handleDownload}>DOWNLOAD CV</Button>
           <div className="social-links animate-text">
-            <a href="#github"><GithubOutlined /></a>
-            <a href="#linkedin"><LinkedinOutlined /></a>
-            <a href="#mail"><MailOutlined /></a>
-            <a href="#twitter"><TwitterOutlined /></a>
+            <a href="https://github.com/hirushan2001" target="_blank" rel="noopener noreferrer"><GithubOutlined /></a>
+            <a href="https://www.linkedin.com/in/dhananjana-hirushan-70992625b/"><LinkedinOutlined /></a>
+            <a href="#contact"><MailOutlined /></a>
+            <a href="https://x.com/dhanajanahp"><TwitterOutlined /></a>
           </div>
         </div>
         <div className="right-content">

@@ -21,11 +21,6 @@
   max-width: 60%;
 }
 
-.job-title {
-  font-size: 25px;
-  margin-bottom: 10px;
-  color: #ccc;
-}
 
 .greeting {
   font-size: 48px;
@@ -33,10 +28,74 @@
   margin-bottom: 20px;
   line-height: 1.2;
 }
-
 .name {
   color: #00ff9d;
   display: block;
+}
+
+
+.wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.job-title {
+  font-weight: 500;
+  font-size: 25px;
+  color: rgb(246, 246, 246);
+  margin-right: 10px;
+}
+
+.wrapper .list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  height: 30px;
+  line-height: 30px;
+  overflow: hidden;
+}
+
+.list li {
+  color: #00ff9d;
+  font-weight: 500;
+  font-size: 25px;
+  position: relative;
+  top: 0;
+  animation: slide 9s steps(3) infinite;
+}
+
+@keyframes slide {
+  100% {
+    top: -90px;
+  }
+}
+
+.list li span {
+  position: relative;
+  display: inline-block;
+}
+
+.list li span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: #111;
+  border-left: 2px solid #00ff9d;
+  animation: typing 3s steps(20) infinite;
+  
+}
+
+@keyframes typing {
+  40%, 60% {
+    left: 100%;
+  }
+  100% {
+    left: 0;
+  }
 }
 
 .description {
@@ -102,6 +161,7 @@
   border-radius: 50%;
   animation: rotate 20s linear infinite;
 }
+
 
 .profile-image {
   width: 100%;
