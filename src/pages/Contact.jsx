@@ -1,28 +1,19 @@
 import React from 'react';
-import { Card, Typography, Form, Input, Button } from 'antd';
-
-const { Title } = Typography;
+import { Button } from 'antd';
+import './Contact.css';
 
 const Contact = () => {
   return (
-    <div className="container" id="contact">
-      <Card>
-        <Title>Contact Me</Title>
-        <Form>
-          <Form.Item label="Name" name="name">
-            <Input />
-          </Form.Item>
-          <Form.Item label="Email" name="email">
-            <Input type="email" />
-          </Form.Item>
-          <Form.Item label="Message" name="message">
-            <Input.TextArea />
-          </Form.Item>
-          <Form.Item>
-            <Button type="primary" htmlType="submit">Send</Button>
-          </Form.Item>
-        </Form>
-      </Card>
+    <div className="contact-container">
+      <h2>Contact</h2>
+      <p>Feel free to reach out to me for any questions or opportunities!</p>
+      <form className="contact-form">
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Your Name" required />
+        <input type="text" placeholder="Subject" required />
+        <textarea placeholder="Message" required></textarea>
+        <Button type="primary" htmlType="submit" className="send-btn">Send</Button>
+      </form>
     </div>
   );
 };
