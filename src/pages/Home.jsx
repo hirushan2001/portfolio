@@ -6,7 +6,7 @@ import img from '../assets/mypic.png';
 
 const Home = () => {
   return (
-    <div className="home-container">
+    <div className="home-container" id="home">
       <main className="main-content">
         <div className="left-content">
           <p className="job-title">Software Developer</p>

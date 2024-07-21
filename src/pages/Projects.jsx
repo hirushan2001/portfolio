@@ -32,7 +32,7 @@ const projects = [
 
 const Projects = () => {
   return (
-    <div className="projects-container">
+    <div className="projects-container" id="projects">
       <h1 className="projects-header">Projects</h1>
       <p className="projects-description">
         I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.

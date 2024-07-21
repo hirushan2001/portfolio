@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import { DownloadOutlined, MailOutlined } from '@ant-design/icons';
 import './About.css';
-import img from '../assets/mypic.png';
+import img from '../assets/mypic1.jpg';
 
 const About = () => {
   return (
