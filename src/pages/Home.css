@@ -120,6 +120,8 @@
 .download-cv-btn:hover {
   background-color: #00ff9d !important;
   color: #111 !important;
+  transform: scale(1.1);
+
 }
 
 .social-links {
@@ -142,31 +144,56 @@
 }
 
 .profile-image-container {
-  width: 400px;
-  height: 400px;
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
-  overflow: hidden;
   position: relative;
-  margin: auto; /* Center the image container horizontally */
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-image-container::before,
+.profile-image-container::after {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  animation: rotate 10s linear infinite;
 }
 
 .profile-image-container::before {
-  content: '';
-  position: absolute;
-  top: -15px;
-  left: -15px;
-  right: -15px;
-  bottom: -15px;
-  border: 2px dashed #00ff9d;
-  border-radius: 50%;
-  animation: rotate 20s linear infinite;
+  border-top-color: #00ff9d;
+  border-right-color: #00ff9d;
+  animation-duration: 5s;
+}
+
+.profile-image-container::after {
+  border-bottom-color: #00ff9d;
+  border-left-color: #00ff9d;
+  animation-duration: 7s;
+  animation-direction: reverse;
 }
 
 
 .profile-image {
-  width: 100%;
-  height: 100%;
+  width: 95%;
+  height: 95%;
   object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  border: 3px solid #00ff9d;
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.5);
+  transition: all 0.3s ease;
+}
+
+.profile-image-container:hover .profile-image {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.8);
 }
 
 /* Keyframes for Animations */
@@ -176,6 +203,15 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
   }
 }
 
@@ -252,9 +288,10 @@
     max-width: 100%;
   }
   .profile-image-container {
-    width: 200px;
-    height: 200px;
+    max-width: 200px;
+    max-height: 200px;
     margin-bottom: 30px;
+    overflow: hidden;
   }
   .greeting {
     font-size: 36px;
