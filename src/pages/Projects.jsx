@@ -1,43 +1,53 @@
 import React from 'react';
-import { Card, Typography, List } from 'antd';
-
-const { Title, Paragraph } = Typography;
+import ProjectCard from './ProjectCard';
+import './Projects.css';
+import image1 from '../assets/image1.jpg';
+import image2 from '../assets/image2.jpg';
+import image3 from '../assets/image3.jpg';
 
 const projects = [
   {
-    title: 'Project 1',
-    description: '[Description]',
-    technologies: '[Tech used]',
-    link: 'project-link',
+    image: image1,
+    tags: ['React JS', 'PostgreSQL', 'Node JS', 'Express JS', 'Redux', 'React Flow'],
+    title: 'DecisionHub',
+    dates: 'Jan 2024 - Dec 2023',
+    description: 'A Rule Builder application “DecisionHub” ...'
   },
   {
-    title: 'Project 2',
-    description: '[Description]',
-    technologies: '[Tech used]',
-    link: 'project-link',
+    image: image2,
+    tags: ['Docker', 'AWS', 'DuckDNS', 'Eslint', 'Husky', 'CI/CD', 'React JS', 'MongoDB', 'Node JS', 'Express JS', 'Redux'],
+    title: 'Trackify',
+    dates: 'Jun 2023 - Jul 2023',
+    description: 'A full-stack web application for tracking ...'
+  },
+  {
+    image: image3,
+    tags: ['React JS', 'MongoDB', 'Node JS', 'Express JS', 'Redux'],
+    title: 'Podstream',
+    dates: 'Apr 2023 - May 2023',
+    description: 'Developed a full-stack web application that allows ...'
   },
   // Add more projects as needed
 ];
 
 const Projects = () => {
   return (
-    <div className="container" id = "projects">
-      <Card>
-        <Title>Projects</Title>
-        <List
-          itemLayout="vertical"
-          size="large"
-          dataSource={projects}
-          renderItem={(project) => (
-            <List.Item key={project.title}>
-              <Title level={3}>{project.title}</Title>
-              <Paragraph>{project.description}</Paragraph>
-              <Paragraph>Technologies: {project.technologies}</Paragraph>
-              <a href={project.link}>View Project</a>
-            </List.Item>
-          )}
-        />
-      </Card>
+    <div className="projects-container">
+      <h1 className="projects-header">Projects</h1>
+      <p className="projects-description">
+        I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
+      </p>
+      <div className="projects-filters">
+        <button className="filter-button">All</button>
+        <button className="filter-button">Web Apps</button>
+        <button className="filter-button">Android Apps</button>
+        <button className="filter-button">Machine Learning</button>
+      </div>
+      <div className="projects-list">
+        {projects.map((project, index) => (
+          <ProjectCard key={index} project={project} />
+        ))}
+      </div>
     </div>
   );
 };
