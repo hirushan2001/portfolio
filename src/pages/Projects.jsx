@@ -1,9 +1,9 @@
 import React from 'react';
-import ProjectCard from './ProjectCard';
+import ProjectCard from '../components/ProjectCard';
 import './Projects.css';
-import image1 from '../assets/image1.jpg';
-import image2 from '../assets/image2.jpg';
-import image3 from '../assets/image3.jpg';
+import image1 from '../assets/mypic.png';
+import image2 from '../assets/mypic.png';
+import image3 from '../assets/mypic.png';
 
 const projects = [
   {
