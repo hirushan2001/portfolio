@@ -1,3 +1,4 @@
+/* Home Section Styles */
 .home-container {
   background-color: #111;
   color: #fff;
@@ -107,6 +108,7 @@
   object-fit: cover;
 }
 
+/* Keyframes for Animations */
 @keyframes rotate {
   from {
     transform: rotate(0deg);
@@ -116,6 +118,67 @@
   }
 }
 
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Animation Classes */
+.animate-text {
+  opacity: 0;
+  animation: fadeInUp 1s forwards;
+}
+
+.animate-text:nth-child(2) {
+  animation-delay: 0.3s;
+}
+
+.animate-text:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.animate-text:nth-child(4) {
+  animation-delay: 0.9s;
+}
+
+.animate-button {
+  opacity: 0;
+  animation: fadeIn 1s forwards 1.2s;
+}
+
+.animate-image {
+  opacity: 0;
+  transform: scale(0.8);
+  animation: scaleUp 1s forwards 1.5s;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
   .home-container {
     padding: 60px 20px 20px;
