@@ -21,8 +21,8 @@ function App() {
         <Skills />
         <Projects />
         <Contact />
-      </Content>
-      <Footer />
+        <Footer />
+      </Content> 
     </Layout>
   );
 }
