@@ -20,7 +20,7 @@ const Footer = () => {
           <a href="#linkedin"><LinkedinOutlined /></a>
           <a href="#instagram"><InstagramOutlined /></a>
         </div>
-        <p className="footer-copy">© 2024 Rishav Chanda. All rights reserved.</p>
+        <p className="footer-copy">© 2024 Dhananjana Hirushan. All rights reserved.</p>
       </div>
     </footer>
   );
