@@ -12,11 +12,19 @@ const ProjectCard = ({ project }) => {
           ))}
         </div>
         <h3 className="project-title">{project.title}</h3>
-        <p className="project-dates">{project.dates}</p>
         <p className="project-description">{project.description}</p>
+        <div className="project-links">
+          {project.githubLink && (
+            <a href={project.githubLink} target="_blank" rel="noopener noreferrer" className="project-link github-link">GitHub</a>
+          )}
+          {project.websiteLink && (
+            <a href={project.websiteLink} target="_blank" rel="noopener noreferrer" className="project-link website-link">Website</a>
+          )}
+        </div>
       </div>
     </div>
   );
 };
 
 export default ProjectCard;
+
