@@ -1,15 +1,20 @@
 /* Projects.css */
 .projects-container {
-    padding: 50px;
-    background-color: #111;
-    color: #fff;
-  }
+  padding: 80px 50px;
+  background-color: #111;
+  color: #fff;
+  min-height: 100vh;
+}
   
-  .projects-header {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
+.projects-header {
+  text-align: center;
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #00ff9d;
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.7);
+  letter-spacing: 2px;
+  font-weight: 700;
+}
   
   .projects-description {
     text-align: center;
@@ -17,32 +22,11 @@
     margin-bottom: 40px;
     color: #ccc;
   }
-  
-  .projects-filters {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
-  
-  .filter-button {
-    background-color: transparent;
-    border: 1px solid #00ff9d;
-    color: #00ff9d;
-    margin: 0 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .filter-button:hover {
-    background-color: #00ff9d;
-    color: #111;
-  }
-  
+    
   .projects-list {
-    display: flex;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
     justify-content: center;
-    gap: 20px;
   }
   
