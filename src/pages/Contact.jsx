@@ -1,12 +1,25 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from 'antd';
-import { motion } from 'framer-motion';
+import { motion,useAnimation  } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
 
   const canvasRef = useRef(null);
+  const controls = useAnimation();
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  useEffect(() => {
+    if (inView) {
+      controls.start("visible");
+    }
+  }, [controls, inView]);
+
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -74,6 +87,7 @@ const Contact = () => {
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -97,11 +111,12 @@ const Contact = () => {
 
   return (
     <motion.div
-      className="contact-container"
-      id='contact'
-      variants={containerVariants}
-      initial="hidden"
-      animate="visible"
+    className="contact-container"
+    id='contact'
+    ref={ref}
+    variants={containerVariants}
+    initial="hidden"
+    animate={controls}
     >
           <canvas ref={canvasRef} className="background-canvas"></canvas>
 
