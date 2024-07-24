@@ -1,5 +1,5 @@
-import React,{ useState } from 'react';
-import { motion,AnimatePresence  } from 'framer-motion';
+import React,{ useState,useRef } from 'react';
+import { motion,AnimatePresence,useInView   } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import './Projects.css';
 import image1 from '../assets/FeildMaster.png';
@@ -51,6 +51,8 @@ const projects = [
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
   const [key, setKey] = useState(0);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, amount: 0.2 });
 
   const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
@@ -58,21 +60,22 @@ const Projects = () => {
     setKey(prevKey => prevKey + 1);
     setTimeout(() => {
       setShowAll(prevShowAll => !prevShowAll);
-    }, 300); // Half of the exit animation duration
+    }, 300);
   };
 
   return (
     <motion.div
+      ref={containerRef}
       className="projects-container"
       id="projects"
       initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
+      animate={isInView ? { opacity: 1 } : { opacity: 0 }}
       transition={{ duration: 0.5 }}
     >
       <motion.h1
         className="projects-header"
         initial={{ y: -50, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: -50, opacity: 0 }}
         transition={{ delay: 0.2, duration: 0.5 }}
       >
         Projects
@@ -80,7 +83,7 @@ const Projects = () => {
       <motion.p
         className="projects-description"
         initial={{ y: -30, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
+        animate={isInView ? { y: 0, opacity: 1 } : { y: -30, opacity: 0 }}
         transition={{ delay: 0.4, duration: 0.5 }}
       >
         I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
@@ -90,7 +93,7 @@ const Projects = () => {
           key={key}
           className="projects-list"
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           exit={{ opacity: 0, y: -20 }}
           transition={{ duration: 0.6 }}
         >
@@ -98,7 +101,7 @@ const Projects = () => {
             <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ delay: 0.1 * index, duration: 0.3 }}
             >
               <ProjectCard project={project} />
@@ -109,7 +112,7 @@ const Projects = () => {
       <motion.div
         className="toggle-projects-container"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={isInView ? { opacity: 1 } : { opacity: 0 }}
         transition={{ delay: 0.8, duration: 0.5 }}
       >
         <motion.button
