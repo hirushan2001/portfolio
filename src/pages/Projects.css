@@ -29,4 +29,47 @@
     gap: 60px;
     justify-content: center;
   }
+
+  .view-all-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
   
+  .view-all-button {
+    background-color: #00ff9d;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .view-all-button:hover {
+    background-color: #00cc7d;
+    transform: scale(1.05);
+  }
+  
+  .toggle-projects-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  .toggle-projects-button {
+    background-color: #00ff9d;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .toggle-projects-button:hover {
+    background-color: #00cc7d;
+    transform: scale(1.05);
+  }

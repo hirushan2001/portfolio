@@ -1,5 +1,5 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React,{ useState } from 'react';
+import { motion,AnimatePresence  } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
 import './Projects.css';
 import image1 from '../assets/FeildMaster.png';
@@ -49,15 +49,27 @@ const projects = [
 ];
 
 const Projects = () => {
+  const [showAll, setShowAll] = useState(false);
+  const [key, setKey] = useState(0);
+
+  const displayedProjects = showAll ? projects : projects.slice(0, 3);
+
+  const toggleProjects = () => {
+    setKey(prevKey => prevKey + 1);
+    setTimeout(() => {
+      setShowAll(prevShowAll => !prevShowAll);
+    }, 300); // Half of the exit animation duration
+  };
+
   return (
-    <motion.div 
-      className="projects-container" 
+    <motion.div
+      className="projects-container"
       id="projects"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
-      <motion.h1 
+      <motion.h1
         className="projects-header"
         initial={{ y: -50, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -65,7 +77,7 @@ const Projects = () => {
       >
         Projects
       </motion.h1>
-      <motion.p 
+      <motion.p
         className="projects-description"
         initial={{ y: -30, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -73,26 +85,44 @@ const Projects = () => {
       >
         I have worked on a wide range of projects. From web apps to android apps. Here are some of my projects.
       </motion.p>
-      <motion.div 
-        className="projects-list"
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={key}
+          className="projects-list"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.6 }}
+        >
+          {displayedProjects.map((project, index) => (
+            <motion.div
+              key={project.title}
+              initial={{ opacity: 0, y: 50 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 * index, duration: 0.3 }}
+            >
+              <ProjectCard project={project} />
+            </motion.div>
+          ))}
+        </motion.div>
+      </AnimatePresence>
+      <motion.div
+        className="toggle-projects-container"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 0.6, duration: 0.5 }}
+        transition={{ delay: 0.8, duration: 0.5 }}
       >
-        {projects.map((project, index) => (
-          <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 * index, duration: 0.5 }}
-          >
-            <ProjectCard project={project} />
-          </motion.div>
-        ))}
+        <motion.button
+          className="toggle-projects-button"
+          onClick={toggleProjects}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {showAll ? 'Show Less' : 'View All Projects'}
+        </motion.button>
       </motion.div>
     </motion.div>
   );
 };
-
 
 export default Projects;
