@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaReact, FaNodeJs,FaGithub, FaGlobe ,FaEye } from 'react-icons/fa';
-import { SiMongodb, SiExpress, SiArduino, SiC } from 'react-icons/si';
+import { SiMongodb, SiExpress, SiArduino, SiCplusplus } from 'react-icons/si';
 import './ProjectCard.css';
 
 const iconMap = {
@@ -13,7 +13,7 @@ const iconMap = {
   'React Native': FaReact,
   'Framer Motion': TbBrandFramerMotion,
   'Arduino': SiArduino,
-  'C++': SiC
+  'C++': SiCplusplus
 };
 
 const ProjectCard = ({ project }) => {
