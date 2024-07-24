@@ -22,7 +22,7 @@ const projects = [
     tags: ['React JS', 'Framer Motion'],
     title: 'Portfolio Website',
     // dates: 'Jan 2024 - Dec 2023',
-    description: 'This website is built with React.js and Framer Motion.',
+    description: 'This website is built with React.js and Framer Motion.This website is built with React.js and Framer Motion Framer Motion',
     githubLink: 'https://github.com/hirushan2001/portfolio.git',
     websiteLink: 'https://field-master-frontend.vercel.app/'
   },
@@ -31,16 +31,16 @@ const projects = [
     tags: ['React JS',  'Node JS',],
     title: 'Gemini Clone',
     // dates: 'Apr 2023 - May 2023',
-    description: 'Developed a generative AI application using the Google Gemini API..',
+    description: 'Developed a generative AI application using the Google Gemini API..Developed a generative AI application using the ',
     githubLink: 'https://github.com/hirushan2001/Gemini-Clone.git',
     websiteLink: 'https://gemini-clone-nine-pied.vercel.app/'
   },
   {
     image: image4,
-    tags: ['Ardino', 'C++'],
+    tags: ['Arduino', 'C++'],
     title: 'Security System for Bicycle',
     // dates: 'Jun 2023 - Jul 2023',
-    description: 'The Aim of this initiative is to enhance the safety of bicycle riders and safeguard their bicycles, while making bicycle a preferred transportation method',
+    description: 'The Aim of this initiative is to enhance the safety of bicycle riders and safeguard their bicycles, while making bicycle ',
     githubLink: 'https://github.com/hirushan2001/Arduino_security_system.git',
   },
 
