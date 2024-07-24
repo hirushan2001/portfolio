@@ -1,0 +1,57 @@
+.footer-container {
+    background-color: #111;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .footer-name {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #9b59b6; /* Adjust this color to match the purple in your image */
+  }
+  
+  .footer-links {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .footer-links a {
+    margin: 0 15px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-links a:hover {
+    color: #9b59b6; /* Adjust this color to match the purple in your image */
+  }
+  
+  .footer-social-links {
+    margin-bottom: 20px;
+  }
+  
+  .footer-social-links a {
+    color: #fff;
+    font-size: 24px;
+    margin: 0 10px;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-social-links a:hover {
+    color: #9b59b6; /* Adjust this color to match the purple in your image */
+  }
+  
+  .footer-copy {
+    font-size: 14px;
+    color: #777;
+  }
+  

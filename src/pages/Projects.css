@@ -1,0 +1,48 @@
+/* Projects.css */
+.projects-container {
+    padding: 50px;
+    background-color: #111;
+    color: #fff;
+  }
+  
+  .projects-header {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 20px;
+  }
+  
+  .projects-description {
+    text-align: center;
+    font-size: 16px;
+    margin-bottom: 40px;
+    color: #ccc;
+  }
+  
+  .projects-filters {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+  }
+  
+  .filter-button {
+    background-color: transparent;
+    border: 1px solid #00ff9d;
+    color: #00ff9d;
+    margin: 0 10px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-button:hover {
+    background-color: #00ff9d;
+    color: #111;
+  }
+  
+  .projects-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+  }
+  
