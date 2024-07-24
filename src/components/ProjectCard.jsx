@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TbBrandFramerMotion } from "react-icons/tb";
-import { FaReact, FaNodeJs,FaGithub, FaGlobe } from 'react-icons/fa';
+import { FaReact, FaNodeJs,FaGithub, FaGlobe ,FaEye } from 'react-icons/fa';
 import { SiMongodb, SiExpress, SiArduino, SiC } from 'react-icons/si';
 import './ProjectCard.css';
 
@@ -17,6 +17,12 @@ const iconMap = {
 };
 
 const ProjectCard = ({ project }) => {
+  const handleViewMore = () => {
+    // Here you can implement the action for the "View More" button
+    // For example, you could set a state to show more details or open a modal
+    console.log("View More clicked for project:", project.title);
+  };
+
   return (
     <motion.div 
       className="project-card"
@@ -45,6 +51,7 @@ const ProjectCard = ({ project }) => {
               className="project-tag"
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
+              title={tag}
             >
               {iconMap[tag] && React.createElement(iconMap[tag], { className: 'tag-icon' })}
             </motion.span>
@@ -72,7 +79,7 @@ const ProjectCard = ({ project }) => {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
         >
-           {project.githubLink && (
+          {project.githubLink && (
             <motion.a 
               href={project.githubLink} 
               target="_blank" 
@@ -98,6 +105,15 @@ const ProjectCard = ({ project }) => {
               <FaGlobe />
             </motion.a>
           )}
+          <motion.button
+            onClick={handleViewMore}
+            className="project-link view-more-link"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            title="View More"
+          >
+            <FaEye />
+          </motion.button>
         </motion.div>
       </div>
     </motion.div>

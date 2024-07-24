@@ -98,6 +98,8 @@
   text-decoration: none;
   font-size: 20px;
   transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
 }
 
 .github-link {
@@ -120,6 +122,17 @@
   color: #ffffff;
   box-shadow: 0 4px 8px rgba(0, 255, 157, 0.3);
 }
+
+.view-more-link {
+  background-color: #4a90e2;
+  color: #fff;
+}
+
+.view-more-link:hover {
+  background-color: #3a7bc8;
+  box-shadow: 0 4px 8px rgba(74, 144, 226, 0.3);
+}
+
 
 @keyframes fadeInUp {
   from {
