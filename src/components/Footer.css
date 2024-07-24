@@ -1,57 +1,160 @@
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(155, 89, 182, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(155, 89, 182, 0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% { text-shadow: 0 0 5px rgba(155, 89, 182, 0.5); }
+  50% { text-shadow: 0 0 20px rgba(155, 89, 182, 0.8); }
+}
+
 .footer-container {
-    background-color: #111;
-    color: #fff;
-    padding: 20px 0;
-    text-align: center;
-  }
-  
-  .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-  }
-  
-  .footer-name {
-    font-size: 24px;
-    margin-bottom: 20px;
-    color: #9b59b6; /* Adjust this color to match the purple in your image */
-  }
-  
+  background-color: #111;
+  color: #fff;
+  padding: 40px 0 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #9b59b6, #3498db, #2ecc71);
+  animation: shimmer 2s linear infinite;
+  background-size: 200% 100%;
+}
+
+@keyframes shimmer {
+  0% {background-position: 100% 0;}
+  100% {background-position: -100% 0;}
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.footer-name {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 25px;
+  color: #9b59b6;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  animation: fadeInUp 1s ease-out, glow 3s ease-in-out infinite;
+  text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  animation: fadeInUp 0.8s ease-out 0.4s both;
+}
+
+.footer-links a {
+  margin: 5px 15px;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.footer-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #9b59b6;
+  transition: width 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #9b59b6;
+}
+
+.footer-links a:hover::after {
+  width: 100%;
+}
+
+.footer-social-links {
+  margin-bottom: 30px;
+  animation: fadeInUp 0.8s ease-out 0.6s both;
+}
+
+.footer-social-links a {
+  color: #fff;
+  font-size: 24px;
+  margin: 0 15px;
+  transition: all 0.3s ease;
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  background-color: #333;
+  text-align: center;
+}
+
+.footer-social-links a:hover {
+  color: #fff;
+  background-color: #9b59b6;
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(155, 89, 182, 0.4);
+  animation: pulse 1.5s infinite;
+}
+
+.footer-copy {
+  font-size: 14px;
+  color: #777;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #333;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+@media (max-width: 768px) {
   .footer-links {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+    flex-direction: column;
   }
   
   .footer-links a {
-    margin: 0 15px;
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  .footer-links a:hover {
-    color: #9b59b6; /* Adjust this color to match the purple in your image */
-  }
-  
-  .footer-social-links {
-    margin-bottom: 20px;
+    margin: 10px 0;
   }
   
   .footer-social-links a {
-    color: #fff;
-    font-size: 24px;
+    font-size: 22px;
     margin: 0 10px;
-    transition: color 0.3s ease;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
   }
-  
-  .footer-social-links a:hover {
-    color: #9b59b6; /* Adjust this color to match the purple in your image */
-  }
-  
-  .footer-copy {
-    font-size: 14px;
-    color: #777;
-  }
-  
+}

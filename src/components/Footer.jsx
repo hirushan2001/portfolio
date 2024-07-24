@@ -15,10 +15,10 @@ const Footer = () => {
           <a href="#education">Education</a>
         </div>
         <div className="footer-social-links">
-          <a href="#facebook"><FacebookOutlined /></a>
-          <a href="#twitter"><TwitterOutlined /></a>
-          <a href="#linkedin"><LinkedinOutlined /></a>
-          <a href="#instagram"><InstagramOutlined /></a>
+          <a href="https://web.facebook.com/dhananjanahirushan/" aria-label="Facebook"><FacebookOutlined /></a>
+          <a href="https://x.com/dhanajanahp" aria-label="Twitter"><TwitterOutlined /></a>
+          <a href="https://www.linkedin.com/in/dhananjana-hirushan-70992625b/" aria-label="LinkedIn"><LinkedinOutlined /></a>
+          <a href="https://www.instagram.com/dhananjanahirushan/" aria-label="Instagram"><InstagramOutlined /></a>
         </div>
         <p className="footer-copy">© 2024 Dhananjana Hirushan. All rights reserved.</p>
       </div>
