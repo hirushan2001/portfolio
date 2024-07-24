@@ -135,9 +135,9 @@ const Contact = () => {
               <p>+94 (76) 451-2428</p>
             </div>
             <div className="social-linksc">
-              <a href="#" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
-              <a href="#" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
-              <a href="#" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
+              <a href="https://www.linkedin.com/in/dhananjana-hirushan-70992625b/" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+              <a href="https://github.com/hirushan2001" target="_blank" rel="noopener noreferrer"><FaGithub /></a>
+              <a href="https://x.com/dhanajanahp" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
             </div>
           </motion.div>
         </div>
