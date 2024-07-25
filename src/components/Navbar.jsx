@@ -83,13 +83,15 @@ const Navbar = () => {
           {item}
         </motion.a>
       ))}
-      <motion.div
+      <motion.a
+        href="https://github.com/hirushan2001"
+        target="_blank" 
         variants={linkVariants}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
         <Button type="default" className="hire-me-btn">Github</Button>
-      </motion.div>
+      </motion.a>
     </motion.div>
   );
 
@@ -102,7 +104,7 @@ const Navbar = () => {
     >
       <motion.div
         className="logo"
-        whileHover={{ scale: 1.1 }}
+        whileHover={{ scale: 1.01 }}
         whileTap={{ scale: 0.9 }}
       >
         HirushanDH<span className="logo-dot">.</span>
