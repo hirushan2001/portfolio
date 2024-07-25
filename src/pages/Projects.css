@@ -1,15 +1,44 @@
 /* Projects.css */
 .projects-container {
-    padding: 50px;
-    background-color: #111;
-    color: #fff;
-  }
+  padding: 80px 50px;
+  background:
+  radial-gradient(circle at 10% 20%, rgba(0, 255, 157, 0.1) 0%, transparent 20%),
+  radial-gradient(circle at 90% 80%, rgba(0, 255, 157, 0.1) 0%, transparent 20%);
+  z-index: 1;
+  color: #fff;
+  min-height: 100vh;
+  overflow: hidden;
+  position: relative;
+   
+
+}
+.background-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1; /* Place the canvas behind all content */
+  pointer-events: none; /* Allow clicks to pass through the canvas */
+}
+
+.projects-header,
+.projects-description,
+.projects-list,
+.toggle-projects-container,
+.toggle-projects-button {
+  position: relative;
   
-  .projects-header {
-    text-align: center;
-    font-size: 36px;
-    margin-bottom: 20px;
-  }
+}
+  
+.projects-header {
+  text-align: center;
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #00ff9d;
+  letter-spacing: 2px;
+  font-weight: bold;
+}
   
   .projects-description {
     text-align: center;
@@ -17,32 +46,54 @@
     margin-bottom: 40px;
     color: #ccc;
   }
-  
-  .projects-filters {
+    
+  .projects-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+    justify-content: center;
+  }
+
+  .view-all-container {
     display: flex;
     justify-content: center;
-    margin-bottom: 40px;
+    margin-top: 40px;
   }
   
-  .filter-button {
-    background-color: transparent;
-    border: 1px solid #00ff9d;
-    color: #00ff9d;
-    margin: 0 10px;
-    padding: 10px 20px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .filter-button:hover {
+  .view-all-button {
     background-color: #00ff9d;
     color: #111;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
   }
   
-  .projects-list {
+  .view-all-button:hover {
+    background-color: #00cc7d;
+    transform: scale(1.05);
+  }
+  
+  .toggle-projects-container {
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
-    gap: 20px;
+    margin-top: 40px;
   }
   
+  .toggle-projects-button {
+    background-color: #00ff9d;
+    color: #111;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 5px;
+  }
+  
+  .toggle-projects-button:hover {
+    background-color: #00cc7d;
+    transform: scale(1.05);
+  }

@@ -10,6 +10,8 @@
   transition: all 0.3s ease-in-out;
   position: relative;
   z-index: 1;
+  min-height: 100vh;
+
 }
 .background-canvas {
   position: absolute;
@@ -21,11 +23,12 @@
 }
 
 .skills-header {
-  font-size: 48px;
+  font-size: 36px;
   color: #00ff9d;
-  margin-bottom: 50px;
+  margin-bottom: 100px;
   text-align: center;
   position: relative;
+  font-weight: bold;
 }
 
 .skills-header::after {
