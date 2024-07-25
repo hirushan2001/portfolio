@@ -3,7 +3,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 50px;
+  padding: 20px 5%;
   background: linear-gradient(90deg, #111, #333);
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: fixed;
@@ -11,17 +11,12 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-
-.navbar:hover {
-  background-color: rgba(17, 17, 17, 0.9);
-  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+  transition: padding 0.3s;
 }
 
 /* Logo Styles */
 .logo {
-  font-size: 28px;
+  font-size: 24px;
   font-weight: bold;
   color: #fff;
   font-family: 'Courier New', Courier, monospace;
@@ -42,18 +37,17 @@
 .nav-links {
   display: flex;
   align-items: center;
-  transition: transform 0.3s ease;
 }
 
 .nav-links a {
   color: #fff;
-  margin-left: 28px;
   text-decoration: none;
-  transition: color 0.3s ease, transform 0.3s ease;
+  margin: 0 15px;
+  font-size: 16px;
+  transition: color 0.3s, transform 0.3s;
 }
 
-.nav-links a:hover,
-.nav-links a.active {
+.nav-links a:hover {
   color: #00ff9d;
   transform: scale(1.1);
 }
@@ -63,13 +57,11 @@
   background-color: #00ff9d !important;
   border-color: #00ff9d !important;
   color: #111 !important;
-  margin-left: 20px;
-  transition: all 0.3s ease;
+  margin-left: 15px;
+  transition: transform 0.3s;
 }
 
 .hire-me-btn:hover {
-  background-color: #00cc7d !important;
-  border-color: #00cc7d !important;
   transform: scale(1.1);
 }
 
@@ -79,47 +71,70 @@
   font-size: 24px;
   color: #fff;
   cursor: pointer;
-  transition: transform 0.3s ease;
 }
 
-.menu-icon:hover {
-  transform: rotate(90deg);
-}
-
-/* Mobile Styles */
+/* Responsive Styles */
 @media (max-width: 768px) {
   .navbar {
     padding: 15px 20px;
   }
 
-  .nav-links {
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
-    background-color: #111;
-    flex-direction: column;
-    transform: translateY(-100%);
-    opacity: 0;
-    visibility: hidden;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  .nav-links.open {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .nav-links a {
-    margin: 15px 0;
-  }
-
-  .hire-me-btn {
-    margin: 15px 0;
+  .desktop-nav {
+    display: none;
   }
 
   .menu-icon {
     display: block;
   }
+
+  .mobile-nav-container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 60px; /* Adjust based on your navbar height */
+    left: 0;
+    right: 0;
+    background-color: #111;
+    padding: 20px 5%;
+    overflow-y: auto;
+    max-height: calc(100vh - 60px);
+    transition: opacity 0.3s, height 0.3s;
+
+  }
+
+  .mobile-nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mobile-nav a {
+    margin: 10px 0;
+    font-size: 18px;
+  }
+
+  .hire-me-btn {
+    margin: 10px 0;
+  }
+}
+
+/* Larger screens */
+@media (min-width: 1200px) {
+  .navbar {
+    padding: 20px 10%;
+  }
+
+  .nav-links a {
+    font-size: 18px;
+  }
+
+  .logo {
+    font-size: 28px;
+  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
 }
