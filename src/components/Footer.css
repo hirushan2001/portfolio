@@ -161,6 +161,10 @@
   .footer-social-links a {
     margin: 0 8px;
   }
+
+  .footer-links a:hover::after {
+    width: 0;
+  }
 }
 
 @media (max-width: 480px) {
