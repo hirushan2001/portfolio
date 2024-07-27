@@ -26,10 +26,15 @@
   50% { text-shadow: 0 0 20px rgba(155, 89, 182, 0.8); }
 }
 
+@keyframes shimmer {
+  0% {background-position: 100% 0;}
+  100% {background-position: -100% 0;}
+}
+
 .footer-container {
   background-color: #111;
   color: #fff;
-  padding: 40px 0 20px;
+  padding: 40px 20px 20px;
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -47,27 +52,22 @@
   background-size: 200% 100%;
 }
 
-@keyframes shimmer {
-  0% {background-position: 100% 0;}
-  100% {background-position: -100% 0;}
-}
-
 .footer-content {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 20px;
   animation: fadeInUp 0.8s ease-out;
 }
 
 .footer-name {
-  font-size: 28px;
+  font-size: clamp(24px, 5vw, 28px);
   font-weight: 700;
   margin-bottom: 25px;
   color: #9b59b6;
   text-transform: uppercase;
   letter-spacing: 2px;
   animation: fadeInUp 1s ease-out, glow 3s ease-in-out infinite;
-  text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);}
+  text-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+}
 
 .footer-links {
   display: flex;
@@ -80,7 +80,7 @@
 .footer-links a {
   margin: 5px 15px;
   color: #fff;
-  font-size: 16px;
+  font-size: clamp(14px, 3vw, 16px);
   text-decoration: none;
   transition: all 0.3s ease;
   position: relative;
@@ -112,13 +112,13 @@
 
 .footer-social-links a {
   color: #fff;
-  font-size: 24px;
-  margin: 0 15px;
+  font-size: clamp(20px, 4vw, 24px);
+  margin: 0 10px;
   transition: all 0.3s ease;
   display: inline-block;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: clamp(40px, 8vw, 50px);
+  height: clamp(40px, 8vw, 50px);
+  line-height: clamp(40px, 8vw, 50px);
   border-radius: 50%;
   background-color: #333;
   text-align: center;
@@ -133,7 +133,7 @@
 }
 
 .footer-copy {
-  font-size: 14px;
+  font-size: clamp(12px, 2.5vw, 14px);
   color: #777;
   margin-top: 20px;
   padding-top: 20px;
@@ -142,19 +142,54 @@
 }
 
 @media (max-width: 768px) {
+  .footer-container {
+    padding: 30px 15px 15px;
+  }
+
   .footer-links {
     flex-direction: column;
   }
-  
+ 
   .footer-links a {
-    margin: 10px 0;
+    margin: 8px 0;
   }
-  
+ 
+  .footer-social-links {
+    margin-bottom: 20px;
+  }
+
   .footer-social-links a {
-    font-size: 22px;
-    margin: 0 10px;
-    width: 45px;
-    height: 45px;
-    line-height: 45px;
+    margin: 0 8px;
+  }
+
+  .footer-links a:hover::after {
+    width: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-container {
+    padding: 25px 10px 10px;
+  }
+
+  .footer-name {
+    margin-bottom: 20px;
+  }
+
+  .footer-links a {
+    margin: 6px 0;
+  }
+
+  .footer-social-links {
+    margin-bottom: 15px;
+  }
+
+  .footer-social-links a {
+    margin: 0 6px;
+  }
+
+  .footer-copy {
+    margin-top: 15px;
+    padding-top: 15px;
   }
 }
