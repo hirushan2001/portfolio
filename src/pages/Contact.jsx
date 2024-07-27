@@ -1,11 +1,50 @@
-import React, { useEffect, useRef } from 'react';
-import { Button } from 'antd';
+import React, { useEffect, useRef, useState } from 'react';
+import { Button,message } from 'antd';
 import { motion,useAnimation  } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import './Contact.css';
 
 const Contact = () => {
+
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prevState => ({
+      ...prevState,
+      [name]: value
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      console.log(formData);
+      const response = await fetch('http://localhost:5000/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      if (response.ok) {
+        message.success('Message sent successfully!');
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      alert('An error occurred. Please try again.');
+    }
+  };
 
   const canvasRef = useRef(null);
   const controls = useAnimation();
@@ -124,17 +163,44 @@ const Contact = () => {
         <motion.h2 variants={itemVariants}>Let's Connect</motion.h2>
         <motion.p variants={itemVariants}>Have a project in mind or just want to say hi? I'd love to hear from you!</motion.p>
         <div className="contact-columns">
-          <motion.form className="contact-form" variants={itemVariants}>
-            <input type="text" placeholder="Your Name" required />
-            <input type="email" placeholder="Your Email" required />
-            <input type="text" placeholder="Subject" required />
-            <textarea placeholder="Your Message" required></textarea>
-            <motion.div>
-              <Button type="primary" htmlType="submit" className="send-btn">
-                Send Message
-              </Button>
-            </motion.div>
-          </motion.form>
+        <motion.form className="contact-form" variants={itemVariants} onSubmit={handleSubmit}>
+  <input 
+    type="text" 
+    name="name"
+    value={formData.name}
+    onChange={handleInputChange}
+    placeholder="Your Name" 
+    required 
+  />
+  <input 
+    type="email" 
+    name="email"
+    value={formData.email}
+    onChange={handleInputChange}
+    placeholder="Your Email" 
+    required 
+  />
+  <input 
+    type="text" 
+    name="subject"
+    value={formData.subject}
+    onChange={handleInputChange}
+    placeholder="Subject" 
+    required 
+  />
+  <textarea 
+    name="message"
+    value={formData.message}
+    onChange={handleInputChange}
+    placeholder="Your Message" 
+    required
+  ></textarea>
+  <motion.div>
+    <Button type="primary" htmlType="submit" className="send-btn">
+      Send Message
+    </Button>
+  </motion.div>
+</motion.form>
           <motion.div className="contact-info" variants={itemVariants}>
             <h3>Contact Information</h3>
             <div className="info-item">

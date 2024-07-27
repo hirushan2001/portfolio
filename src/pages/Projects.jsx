@@ -19,11 +19,10 @@ const projects = [
   },
   {
     image: image2,
-    tags: ['React JS', 'Framer Motion'],
+    tags: ['React JS', 'Node JS','Framer Motion' ],
     title: 'Portfolio Website',
     // dates: 'Jan 2024 - Dec 2023',
     description: 'This website is built with React.js and Framer Motion.This website is built with React.js and Framer Motion Framer Motion',
-    githubLink: 'https://github.com/hirushan2001/portfolio.git',
     websiteLink: 'https://field-master-frontend.vercel.app/'
   },
   {
