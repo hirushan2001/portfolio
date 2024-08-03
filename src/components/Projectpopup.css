@@ -1,66 +1,171 @@
 .project-popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+  position: fixed;
+  top: 10;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  backdrop-filter: blur(5px);
+}
+
+.project-popup-content {
+  background-color: #1a1a1a;
+  padding: 40px;
+  border-radius: 20px;
+  max-width: 800px;
+  width: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 255, 157, 0.2);
+  border: 1px solid rgba(0, 255, 157, 0.1);
+}
+
+.popup-title {
+  color: #00ff9d;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.popup-image {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.popup-image:hover {
+  transform: scale(1.02);
+}
+
+.popup-details h3 {
+  color: #00ff9d;
+  margin-top: 25px;
+  margin-bottom: 15px;
+  font-size: 24px;
+  border-bottom: 2px solid rgba(0, 255, 157, 0.3);
+  padding-bottom: 10px;
+}
+
+.popup-details p {
+  color: #e0e0e0;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.popup-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.popup-tag {
+  background-color: rgba(0, 255, 157, 0.1);
+  color: #00ff9d;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 255, 157, 0.3);
+}
+
+.popup-tag:hover {
+  background-color: rgba(0, 255, 157, 0.2);
+  transform: translateY(-2px);
+}
+
+.feature-list {
+  padding-left: 20px;
+  margin-bottom: 20px;
+}
+
+.feature-list li {
+  margin-bottom: 10px;
+  color: #e0e0e0;
+  position: relative;
+}
+
+.feature-list li::before {
+  content: '•';
+  color: #00ff9d;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+
+
+.close-popup {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  color: #00ff9d;
+  border: 2px solid #00ff9d;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.close-popup:hover {
+  background-color: #00ff9d;
+  color: #1a1a1a;
+  transform: rotate(90deg);
+}
+
+/* Scrollbar styling */
+.project-popup-content::-webkit-scrollbar {
+  width: 10px;
+}
+
+.project-popup-content::-webkit-scrollbar-track {
+  background: #2a2a2a;
+  border-radius: 5px;
+}
+
+.project-popup-content::-webkit-scrollbar-thumb {
+  background: #00ff9d;
+  border-radius: 5px;
+}
+
+.project-popup-content::-webkit-scrollbar-thumb:hover {
+  background: #00e68a;
+}
+
+/* Add some animation to the content */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .project-popup-content {
-    background-color: #1a1a1a;
-    padding: 30px;
-    border-radius: 15px;
-    max-width: 600px;
-    width: 90%;
-    max-height: 90vh;
-    overflow-y: auto;
-    position: relative;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .popup-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .popup-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  .popup-tag {
-    background-color: #2a2a2a;
-    color: #00ff9d;
-    padding: 5px 10px;
-    border-radius: 15px;
-    font-size: 14px;
-  }
-  
-  .close-popup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: #00ff9d;
-    color: #111;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    font-size: 18px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .close-popup:hover {
-    background-color: #00e68a;
-  }
+}
+
+.popup-details > * {
+  animation: fadeInUp 0.5s ease forwards;
+  opacity: 0;
+}
+
+.popup-details > *:nth-child(1) { animation-delay: 0.1s; }
+.popup-details > *:nth-child(2) { animation-delay: 0.2s; }
+.popup-details > *:nth-child(3) { animation-delay: 0.3s; }
+.popup-details > *:nth-child(4) { animation-delay: 0.4s; }
+.popup-details > *:nth-child(5) { animation-delay: 0.5s; }
