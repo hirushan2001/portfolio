@@ -1,6 +1,7 @@
 import React,{ useState,useRef,useEffect  } from 'react';
 import { motion,AnimatePresence,useInView   } from 'framer-motion';
 import ProjectCard from '../components/ProjectCard';
+import ProjectPopup from '../components/ProjectPopup';
 import './Projects.css';
 import image1 from '../assets/FeildMaster.png';
 import image2 from '../assets/thissite.png';
@@ -49,6 +50,7 @@ const projects = [
 
 const Projects = () => {
   const [showAll, setShowAll] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
   const [key, setKey] = useState(0);
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
@@ -56,6 +58,13 @@ const Projects = () => {
 
   const displayedProjects = showAll ? projects : projects.slice(0, 3);
 
+  const handleViewMore = (project) => {
+    setSelectedProject(project);
+  };
+
+  const closePopup = () => {
+    setSelectedProject(null);
+  };
   const toggleProjects = () => {
     const projectsSection = document.getElementById('projects');
     const scrollPosition = window.pageYOffset;
@@ -181,10 +190,15 @@ const Projects = () => {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
               transition={{ delay: 0.1 * index, duration: 0.3 }}
             >
-              <ProjectCard project={project} />
+              <ProjectCard project={project} onViewMore={handleViewMore} />
             </motion.div>
           ))}
         </motion.div>
+      </AnimatePresence>
+      <AnimatePresence>
+        {selectedProject && (
+          <ProjectPopup project={selectedProject} onClose={closePopup} />
+        )}
       </AnimatePresence>
       <motion.div
         className="toggle-projects-container"

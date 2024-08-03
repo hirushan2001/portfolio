@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState }from 'react';
 import { motion } from 'framer-motion';
 import { TbBrandFramerMotion } from "react-icons/tb";
 import { FaReact, FaNodeJs,FaGithub, FaGlobe ,FaEye } from 'react-icons/fa';
@@ -16,11 +16,12 @@ const iconMap = {
   'C++': SiCplusplus
 };
 
-const ProjectCard = ({ project }) => {
+const ProjectCard = ({ project ,onViewMore}) => {
+
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
+  
   const handleViewMore = () => {
-    // Here you can implement the action for the "View More" button
-    // For example, you could set a state to show more details or open a modal
-    console.log("View More clicked for project:", project.title);
+    onViewMore(project);
   };
 
   return (
