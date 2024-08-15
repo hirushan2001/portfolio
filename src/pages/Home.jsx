@@ -1,96 +1,43 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from 'antd';
 import { DownloadOutlined, GithubOutlined, LinkedinOutlined, MailOutlined, TwitterOutlined } from '@ant-design/icons';
 import './Home.css';
 import img from '../assets/mypic1.png';
 import cvFile from '../assets/mycv.pdf';
-
+import ParticleBackground from '../components/ParticleBackground';
+import LoadingAnimation from '../components/LoadingAnimation';
 const Home = () => {
-  const canvasRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
-    let animationFrameId;
+    // Simulate loading time
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000); // Adjust this time as needed
 
-    const resizeCanvas = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener('resize', resizeCanvas);
-    resizeCanvas();
-
-    // Particle system
-    const particles = [];
-    const particleCount = 100;
-
-    class Particle {
-      constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.size = Math.random() * 3 + 1;
-        this.speedX = Math.random() * 2 - 1;
-        this.speedY = Math.random() * 2 - 1;
-        this.color = `rgba(0, 255, 157, ${Math.random() * 0.5 + 0.5})`;
-      }
-
-      update() {
-        this.x += this.speedX;
-        this.y += this.speedY;
-
-        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-      }
-
-      draw() {
-        ctx.fillStyle = this.color;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fill();
-      }
-    }
-
-    const createParticles = () => {
-      for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-      }
-    };
-
-    const animateParticles = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      for (let i = 0; i < particles.length; i++) {
-        particles[i].update();
-        particles[i].draw();
-      }
-      animationFrameId = requestAnimationFrame(animateParticles);
-    };
-
-    createParticles();
-    animateParticles();
-
-    return () => {
-      window.removeEventListener('resize', resizeCanvas);
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => clearTimeout(timer);
   }, []);
 
   const handleDownload = () => {
     window.open(cvFile, '_blank', 'noopener,noreferrer');
   };
 
+  if (isLoading) {
+    return <LoadingAnimation />;
+  }
+
   return (
     <div className="home-container" id="home">
-      <canvas ref={canvasRef} className="background-canvas"></canvas>
+      <ParticleBackground />
       <main className="main-content">
         <div className="left-content">
           <h1 className="greeting animate-text">Hello I'm<br /><span className="name animate-text">Dhananjana Hirushan</span></h1>
           <div className="wrapper">
             <div className="job-title animate-text">I'm a</div>
             <ul className='list animate-text'>
-              <li><span>Full Stack Developer</span></li>
-              <li><span>Frontend Developer</span></li>
-              <li><span>Backend Developer</span></li>
+              <li><span>Web APP Developer</span></li>
+              <li><span>Mobile App Developer</span></li>
+              <li><span>Content Creator</span></li>
             </ul>
           </div>
           <p className="description animate-text">
