@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import { Button } from 'antd';
 import { DownloadOutlined, GithubOutlined, LinkedinOutlined, MailOutlined, TwitterOutlined } from '@ant-design/icons';
 import './Home.css';
-import img from '../assets/mypic.png';
+import img from '../assets/mypic1.png';
 import cvFile from '../assets/mycv.pdf';
 
 const Home = () => {
