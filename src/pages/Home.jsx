@@ -22,9 +22,9 @@ const Home = () => {
     window.open(cvFile, '_blank', 'noopener,noreferrer');
   };
 
-  if (isLoading) {
-    return <LoadingAnimation />;
-  }
+  // if (isLoading) {
+  //   return <LoadingAnimation />;
+  // }
 
   return (
     <div className="home-container" id="home">
