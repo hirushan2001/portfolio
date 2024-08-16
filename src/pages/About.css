@@ -185,6 +185,10 @@
   box-shadow: 0 10px 20px rgba(0, 255, 157, 0.2);
   transition: all 0.3s ease-in-out;
 }
+.planet{
+  width: 450px;
+  height: 600px;
+}
 
 .about-left:hover .about-image {
   transform: scale(1.05);
@@ -192,8 +196,8 @@
 
 /* About Right Styles */
 .about-box {
-  background-color: rgba(34, 34, 34, 0.8);
-  border: 2px solid #00ff9d;
+  background-color: rgba(0, 0, 0, 0);
+  border: 2px solid #00ff9d93;
   border-radius: 15px;
   padding: 20px;
   box-shadow: 0 10px 30px rgba(0, 255, 157, 0.1);
@@ -291,6 +295,8 @@
     font-size: 36px;
   }
 
+  
+
   .about-content {
     flex-direction: row;
     justify-content: space-between;
@@ -331,10 +337,20 @@
     padding: 20px;
   }
 
+  .section-title {
+    font-size: 28px;
+    margin-bottom: auto;
+  }
+
   .about-image {
     max-width: 100%;
     height: auto;
     max-height: 400px; /* Limit height on mobile */
+  }
+
+  .planet{
+    height: 400px;
+    max-height: 450px;
   }
 
   .about-buttons {

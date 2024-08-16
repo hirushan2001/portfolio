@@ -95,7 +95,7 @@ const About = () => {
         </motion.h2>
         <div className="about-content">
           <motion.div className="about-left" variants={leftVariants}>
-            <div style={{ width: '450px', height: '600px' }}>
+            <div className="planet" >
               <EarthCanvas />
             </div>
           </motion.div>
