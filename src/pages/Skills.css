@@ -23,7 +23,7 @@
 }
 
 .skills-header {
-  font-size: 36px;
+  font-size: 32px;
   color: #00ff9d;
   margin-bottom: 100px;
   text-align: center;
@@ -34,7 +34,7 @@
 .skills-header::after {
   content: '';
   position: absolute;
-  width: 50%;
+  width: 100%;
   height: 3px;
   background-color: #00ff9d;
   bottom: -10px;
