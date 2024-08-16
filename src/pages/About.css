@@ -34,7 +34,6 @@
   z-index: 2;
   background-color: rgba(17, 17, 17, 0);
   border-radius: 20px;
-  backdrop-filter: blur(10px);
   padding: 20px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   width: 100%;
@@ -152,7 +151,6 @@
   left: -10px;
   right: 10px;
   bottom: 10px;
-  border: 2px solid #00ff9d;
   z-index: -1;
   transition: all 0.3s ease-in-out;
 }

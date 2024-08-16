@@ -5,6 +5,7 @@ import './About.css';
 import img from '../assets/mypic1.jpg';
 import cvFile from '../assets/mycv.pdf';
 import ParticleBackground from '../components/ParticleBackground';
+import EarthCanvas from '../components/EarthCanvas';
 
 const About = () => {
   const aboutSectionRef = useRef(null);
@@ -46,7 +47,9 @@ const About = () => {
         <h2 className="section-title" ref={(el) => (contentRefs.current[0] = el)}>About Me</h2>
         <div className="about-content">
           <div className="about-left" ref={(el) => (contentRefs.current[1] = el)}>
-            <img src={img} alt="Dhananjana Hirushan" className="about-image" />
+          <div style={{ width: '450px', height: '600px' }}>
+              <EarthCanvas />
+            </div>
           </div>
           <div className="about-right" ref={(el) => (contentRefs.current[2] = el)}>
             <div className="about-box">
