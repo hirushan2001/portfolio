@@ -1,7 +1,7 @@
 .skills-container {
   background-color: #0a0a0a;
   color: #fff;
-  padding: 80px 20px;
+  padding: clamp(40px, 8vw, 80px) 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,8 +11,8 @@
   position: relative;
   z-index: 1;
   min-height: 100vh;
-
 }
+
 .background-canvas {
   position: absolute;
   top: 0;
@@ -23,10 +23,11 @@
 }
 
 .skills-header {
-  font-size: 32px;
+  font-size: clamp(24px, 5vw, 34px);
   color: #00ff9d;
-  margin-bottom: 100px;
+  margin-bottom: clamp(40px, 10vw, 100px);
   text-align: center;
+  letter-spacing: 2px;
   position: relative;
   font-weight: bold;
 }
@@ -43,15 +44,6 @@
 }
 
 @keyframes underline {
-  0% {
-    width: 0;
-  }
-  100% {
-    width: 50%;
-  }
-}
-
-@keyframes underline {
   0%, 100% {
     width: 0;
     opacity: 0;
@@ -65,7 +57,7 @@
 .skills-row {
   display: flex;
   justify-content: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   gap: 20px;
   width: 100%;
   max-width: 1400px;
@@ -77,7 +69,7 @@
   background-color: rgba(26, 26, 26, 0.8);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  padding: 20px;
+  padding: clamp(15px, 3vw, 20px);
   box-shadow: 0 8px 32px rgba(0, 255, 157, 0.2);
   transition: all 0.3s ease;
   position: relative;
@@ -111,7 +103,7 @@
 }
 
 .skills-section h2 {
-  font-size: 1.4rem;
+  font-size: clamp(1.2rem, 2.5vw, 1.4rem);
   margin-bottom: 20px;
   color: #00ff9d;
   display: flex;
@@ -123,8 +115,8 @@
 }
 
 .skills-icon {
-  width: 24px;
-  height: 24px;
+  width: clamp(20px, 4vw, 24px);
+  height: clamp(20px, 4vw, 24px);
 }
 
 .skills-list {
@@ -139,7 +131,7 @@
   border: 2px solid #00ff9d;
   border-radius: 20px;
   padding: 8px 12px;
-  font-size: 0.9rem;
+  font-size: clamp(0.8rem, 1.5vw, 0.9rem);
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -158,8 +150,8 @@
 
 .skill-icon {
   margin-right: 8px;
-  width: 16px;
-  height: 16px;
+  width: clamp(14px, 3vw, 16px);
+  height: clamp(14px, 3vw, 16px);
 }
 
 @media (max-width: 1200px) {
@@ -169,6 +161,7 @@
   
   .skills-section {
     flex-basis: calc(50% - 20px);
+    min-width: 250px;
   }
 }
 
@@ -182,6 +175,21 @@
   }
   
   .skills-header {
-    font-size: 2.5rem;
+    font-size: clamp(22px, 5vw, 2.5rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-container {
+    padding: 30px 15px;
+  }
+
+  .skills-section {
+    padding: 15px;
+  }
+
+  .skill-item {
+    padding: 6px 10px;
+    font-size: 0.8rem;
   }
 }
