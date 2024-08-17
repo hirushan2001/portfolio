@@ -8,11 +8,11 @@ const Footer = () => {
       <div className="footer-content">
         <h3 className="footer-name">DHANANJANA HIRUSHAN</h3>
         <div className="footer-links">
+          <a href="#home">Home</a>
           <a href="#about">About</a>
           <a href="#skills">Skills</a>
-          <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
-          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
         </div>
         <div className="footer-social-links">
           <a href="https://web.facebook.com/dhananjanahirushan/" aria-label="Facebook"><FacebookOutlined /></a>

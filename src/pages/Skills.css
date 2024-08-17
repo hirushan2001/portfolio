@@ -23,7 +23,7 @@
 }
 
 .skills-header {
-  font-size: clamp(24px, 5vw, 34px);
+  font-size: clamp(2px, 5vw, 34px);
   color: #00ff9d;
   margin-bottom: clamp(40px, 10vw, 100px);
   text-align: center;
@@ -168,14 +168,15 @@
 @media (max-width: 768px) {
   .skills-row {
     flex-direction: column;
+    width: 80%;	
   }
-  
+
   .skills-section {
     flex-basis: 100%;
   }
   
   .skills-header {
-    font-size: clamp(22px, 5vw, 2.5rem);
+    font-size: clamp(24px, 6vw, 28px);
   }
 }
 

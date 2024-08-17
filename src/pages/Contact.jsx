@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button,message } from 'antd';
-import { motion,useAnimation  } from 'framer-motion';
+import { motion,useAnimation,AnimatePresence   } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { FaMapMarkerAlt, FaEnvelope, FaPhone, FaLinkedin, FaGithub, FaTwitter } from 'react-icons/fa';
 import './Contact.css';
@@ -9,12 +9,23 @@ import ParticleBackground from '../components/ParticleBackground';
 
 const Contact = () => {
 
+  const [successMessage, setSuccessMessage] = useState('');
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     subject: '',
     message: ''
   });
+
+  useEffect(() => {
+    let timer;
+    if (successMessage) {
+      timer = setTimeout(() => {
+        setSuccessMessage('');
+      }, 5000); // Message will disappear after 5 seconds
+    }
+    return () => clearTimeout(timer);
+  }, [successMessage]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -37,14 +48,14 @@ const Contact = () => {
       });
       
       if (response.ok) {
-        message.success('Message sent successfully!');
+      setSuccessMessage('Message sent successfully!');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        alert('Failed to send message. Please try again.');
+        setSuccessMessage('Failed to send message. Please try again.');
       }
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred. Please try again.');
+      setSuccessMessage('An error occurred. Please try again.');
     }
   };
 
@@ -136,7 +147,21 @@ const Contact = () => {
       Send Message
     </Button>
   </motion.div>
+  <AnimatePresence>
+    {successMessage && (
+      <motion.div 
+        className="success-message"
+        initial={{ opacity: 0, y: -10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.3 }}
+      >
+        {successMessage}
+      </motion.div>
+    )}
+  </AnimatePresence>
 </motion.form>
+
           <motion.div className="contact-info" variants={itemVariants}>
             <h3>Contact Information</h3>
             <div className="info-item">

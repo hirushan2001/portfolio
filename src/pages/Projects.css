@@ -1,99 +1,147 @@
 /* Projects.css */
 .projects-container {
-  padding: 80px 50px;
+  background-color: #0a0a0a;
+  padding: 60px 20px; /* Reduced padding for mobile */
   background:
-  radial-gradient(circle at 10% 20%, rgba(0, 255, 157, 0.1) 0%, transparent 20%),
-  radial-gradient(circle at 90% 80%, rgba(0, 255, 157, 0.1) 0%, transparent 20%);
+    radial-gradient(circle at 10% 20%, rgba(0, 255, 157, 0.1) 0%, transparent 20%),
+    radial-gradient(circle at 90% 80%, rgba(0, 255, 157, 0.1) 0%, transparent 20%);
   z-index: 1;
   color: #fff;
   min-height: 100vh;
   overflow: hidden;
   position: relative;
-   
-
+  display: flex;
+  flex-direction: column;
 }
+
 .background-canvas {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1; /* Place the canvas behind all content */
-  pointer-events: none; /* Allow clicks to pass through the canvas */
+  z-index: 0;
 }
 
-.projects-header,
 .projects-description,
 .projects-list,
 .toggle-projects-container,
 .toggle-projects-button {
   position: relative;
-  
 }
-  
+
 .projects-header {
-  text-align: center;
-  font-size: 36px;
-  margin-bottom: 20px;
+  width: fit-content;
+  align-items: center;
+  font-size: clamp(28px, 5vw, 34px);
+  margin-bottom: 30px;
   color: #00ff9d;
   letter-spacing: 2px;
   font-weight: bold;
+  position: relative;
+  padding-bottom: 15px;
+  text-align: center; /* Add this line */
+  margin-left: auto; /* Add this line */
+  margin-right: auto; /* Add this line */
 }
-  
-  .projects-description {
-    text-align: center;
-    font-size: 16px;
-    margin-bottom: 40px;
-    color: #ccc;
+
+.projects-header::after {
+  content: '';
+  position: absolute;
+  width: 0; /* Start with 0 width */
+  height: 3px;
+  background-color: #00ff9d;
+  bottom: 0;
+  left: 25%;
+  animation: underline 2s infinite;
+}
+
+@keyframes underline {
+  0%, 100% {
+    width: 0;
+    opacity: 0;
   }
-    
-  .projects-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 60px;
-    justify-content: center;
+  50% {
+    width: 50%;
+    opacity: 1;
+  }
+}
+
+.projects-description {
+  text-align: center;
+  font-size: clamp(14px, 3vw, 16px);
+  margin-bottom: 40px;
+  color: #ccc;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.projects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  max-width: 1200px; /* Add a max-width to control the overall width */
+  margin: 0 auto; /* Center the grid container */
+}
+
+.view-all-container,
+.toggle-projects-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.view-all-button,
+.toggle-projects-button {
+  background-color: #00ff9d;
+  color: #111;
+  border: none;
+  padding: 12px 24px;
+  font-size: clamp(14px, 2vw, 16px);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-radius: 5px;
+}
+
+.view-all-button:hover,
+.toggle-projects-button:hover {
+  background-color: #00cc7d;
+  transform: scale(1.05);
+}
+
+/* Media queries for better responsiveness */
+@media screen and (max-width: 768px) {
+  .projects-container {
+    padding: 40px 15px;
   }
 
-  .view-all-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
+  .projects-header {
+    font-size: clamp(24px, 6vw, 28px);
+    margin-bottom: 20px;
   }
-  
-  .view-all-button {
-    background-color: #00ff9d;
-    color: #111;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 5px;
+
+  .projects-description {
+    font-size: clamp(12px, 3vw, 14px);
+    margin-bottom: 30px;
   }
-  
-  .view-all-button:hover {
-    background-color: #00cc7d;
-    transform: scale(1.05);
+
+  .projects-list {
+    grid-template-columns: 1fr; /* Change to a single column layout on mobile */
+    max-width: 350px; /* Limit the width of projects on mobile */
+    margin: 0 auto; /* Center the projects */
   }
-  
-  .toggle-projects-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 40px;
-  }
-  
+
+  .view-all-button,
   .toggle-projects-button {
-    background-color: #00ff9d;
-    color: #111;
-    border: none;
     padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 5px;
+    font-size: clamp(12px, 2vw, 14px);
   }
-  
-  .toggle-projects-button:hover {
-    background-color: #00cc7d;
-    transform: scale(1.05);
+}
+
+@media screen and (max-width: 350px) {
+  .projects-list {
+    max-width: 100%; /* Allow full width on very small screens */
   }
+}
