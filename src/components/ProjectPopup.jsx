@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import './Projectpopup.css';
 import { IoClose } from 'react-icons/io5';
-import { FaGithub, FaGlobe } from 'react-icons/fa';  // Import GitHub and website icons
+import { FaGithub, FaGlobe, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import ReactMarkdown from 'react-markdown';
 
 const ProjectPopup = ({ project, onClose }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const images = [project.image, ...(project.additionalImages || [])];
+
+  const nextImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
+  };
+
   if (!project) return null;
-  
+
   return (
     <motion.div
       className="project-popup-overlay"
@@ -23,11 +35,20 @@ const ProjectPopup = ({ project, onClose }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <h2 className="popup-title">{project.title}</h2>
-        <img src={project.image} alt={project.title} className="popup-image" />
+        
+        <div className="image-carousel">
+          <img src={images[currentImageIndex]} alt={project.title} className="popup-image" />
+          {images.length > 1 && (
+            <>
+              <button className="carousel-button prev" onClick={prevImage}><FaChevronLeft /></button>
+              <button className="carousel-button next" onClick={nextImage}><FaChevronRight /></button>
+            </>
+          )}
+        </div>
         
         <div className="popup-details">
-          <h3>Project Overview</h3>
-          <p>{project.description}</p>
+        <h3>Project Overview</h3>
+          <ReactMarkdown>{project.longDescription}</ReactMarkdown>
           
           <h3>Technologies Used</h3>
           <div className="popup-tags">
@@ -71,7 +92,7 @@ const ProjectPopup = ({ project, onClose }) => {
         <button className="close-popup" onClick={onClose}><IoClose /></button>
       </motion.div>
     </motion.div>
-  ); 
+  );
 };
 
 export default ProjectPopup;
