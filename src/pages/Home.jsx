@@ -47,9 +47,9 @@ const Home = () => {
           <Button icon={<DownloadOutlined />} className="download-cv-btn animate-button" onClick={handleDownload}>DOWNLOAD CV</Button>
           <div className="social-links animate-text">
             <a href="https://github.com/hirushan2001" target="_blank" rel="noopener noreferrer"><GithubOutlined /></a>
-            <a href="https://www.linkedin.com/in/dhananjana-hirushan-70992625b/"><LinkedinOutlined /></a>
+            <a href="https://www.linkedin.com/in/dhananjana-hirushan-70992625b/" target="_blank" rel="noopener noreferrer"><LinkedinOutlined /></a>
             <a href="#contact"><MailOutlined /></a>
-            <a href="https://x.com/dhanajanahp"><TwitterOutlined /></a>
+            <a href="https://x.com/dhanajanahp" target="_blank"><TwitterOutlined /></a>
           </div>
         </div>
         <div className="right-content">

@@ -54,15 +54,53 @@
 
 /* Button Styles */
 .hire-me-btn {
-  background-color: #00ff9d !important;
+  background: linear-gradient(45deg, #00ff9d, #00ccff) !important;
   border-color: #00ff9d !important;
   color: #111 !important;
   margin-left: 15px;
-  transition: transform 0.3s;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
 }
-
 .hire-me-btn:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(0, 255, 157, 0.5);
+}
+.hire-me-btn:active {
+  transform: scale(0.95);
+}
+.hire-me-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: all 0.5s;
+}
+.hire-me-btn:hover::before {
+  left: 100%;
+}
+.hire-me-btn span {
+  display: inline-block;
+  transition: 0.3s;
+}
+.hire-me-btn:hover span {
+  animation: wobble 0.5s ease-in-out;
+}
+@keyframes wobble {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px) rotate(-5deg); }
+  75% { transform: translateX(5px) rotate(5deg); }
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+.hire-me-btn:hover {
+  animation: pulse 1.5s infinite;
 }
 
 /* Menu Icon Styles */
