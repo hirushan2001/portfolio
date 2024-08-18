@@ -123,7 +123,7 @@ Explore my portfolio to see how React.js, Framer Motion, and Node.js come togeth
 {
   image: image3,
   additionalImages: [image3, image4], // Assuming you have these additional images
-  tags: ['React JS', 'Node JS', 'Google Gemini API'],
+  tags: ['React JS', 'Node JS'],
   title: 'Gemini Clone',
   description: 'Developed a generative AI application using the Google Gemini API, transforming raw data into intelligent, creative outputs.',
   longDescription: `🚀 Gemini Clone: Harnessing the Power of Google's Generative AI
