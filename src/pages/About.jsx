@@ -115,7 +115,7 @@ const About = () => {
                 <motion.p variants={itemVariants}><b>Phone</b>: 076-4512428</motion.p>
               </motion.div>
               <motion.div className="about-buttons" variants={itemVariants}>
-                <Button onClick={handleDownload} icon={<DownloadOutlined />} className="download-resume-btn">DOWNLOAD RESUME</Button>
+                <Button onClick={handleDownload} icon={<DownloadOutlined />} className="download-resume-btn">RESUME</Button>
                 <Button href="#contact" icon={<MailOutlined />} className="contact-me-btn">CONTACT ME</Button>
               </motion.div>
             </motion.div>

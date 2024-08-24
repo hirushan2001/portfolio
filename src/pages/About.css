@@ -327,6 +327,7 @@
   .download-resume-btn,
   .contact-me-btn {
     flex: 0 1 auto;
+    width: 80%;
   }
 
   
@@ -360,8 +361,8 @@
 
   .download-resume-btn,
   .contact-me-btn {
-    width: 100%;
-    max-width: 250px; /* Limit maximum width on mobile */
+    width: 80%;
+    max-width: 150px; /* Limit maximum width on mobile */
   }
 }
 
@@ -385,6 +386,6 @@
 
   .download-resume-btn,
   .contact-me-btn {
-    width: 100%;
+    width: 80%;
   }
 }

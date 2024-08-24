@@ -18,9 +18,16 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleDownload = () => {
-    window.open(cvFile, '_blank', 'noopener,noreferrer');
-  };
+    
+
+    const handleDownload = () => {
+      const link = document.createElement('a');
+      link.href = cvFile;
+      link.download = 'resume.pdf'; // You can change the filename here
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    };
 
   // if (isLoading) {
   //   return <LoadingAnimation />;
