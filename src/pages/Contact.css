@@ -246,6 +246,13 @@
     padding: 12px 30px !important;
     font-size: 16px !important;
   }
+  
+  .info-item {
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 12px;
+    margin-bottom: 15px;
+  }
 
   
 }
