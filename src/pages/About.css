@@ -327,8 +327,7 @@
   .download-resume-btn,
   .contact-me-btn {
     flex: 0 1 auto;
-    width: 80%;
-  }
+    }
 
   
 }
