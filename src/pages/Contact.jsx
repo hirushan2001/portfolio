@@ -39,7 +39,7 @@ const Contact = () => {
     e.preventDefault();
     try {
       console.log(formData);
-      const response = await fetch('http://localhost:5000/send-email', {
+      const response = await fetch('https://portfolio-r6no.vercel.app/send-email', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
