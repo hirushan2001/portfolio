@@ -20,6 +20,7 @@ import FeildMaster5 from '../assets/FeildMaster5.png';
 import FeildMaster6 from '../assets/FeildMaster6.png';
 import FeildMaster7 from '../assets/FeildMaster7.png';
 import FeildMaster8 from '../assets/FeildMaster8.png';
+import Meethub1 from '../assets/Meethub1.png';
 
 
 import ParticleBackground from '../components/ParticleBackground';
@@ -123,7 +124,7 @@ Explore my portfolio to see how React.js, Framer Motion, and Node.js come togeth
 {
   image: image3,
   additionalImages: [image3, image4], // Assuming you have these additional images
-  tags: ['React JS', 'Node JS', 'Google Gemini API'],
+  tags: ['React JS', 'Node JS'],
   title: 'Gemini Clone',
   description: 'Developed a generative AI application using the Google Gemini API, transforming raw data into intelligent, creative outputs.',
   longDescription: `🚀 Gemini Clone: Harnessing the Power of Google's Generative AI
@@ -134,6 +135,54 @@ I am excited to showcase a groundbreaking generative AI application developed us
 **Core Functionality**  
 Our application is designed to leverage the capabilities of the Google Gemini API to analyze and interpret raw data, producing high-quality, contextually relevant, and creatively generated content. Whether it's for generating text, creating visual content, or deriving insights from complex data sets, this AI application provides versatile and sophisticated solutions tailored to diverse needs.`,
   githubLink: 'https://github.com/hirushan2001/Gemini-Clone.git',
+  // websiteLink: 'https://gemini-clone-nine-pied.vercel.app/'
+},
+
+
+{
+  image: Meethub1,
+  additionalImages: [Meethub1], // Assuming you have these additional images
+  tags: ['Next JS','Typescript', 'Node JS','Tailwind CSS'],
+  title: 'MeetHub',
+  description: 'Built with the latest Next.js and TypeScript, this project replicates Zoom, a widely used video conferencing tool.',
+  longDescription: `🚀 Next.js Video Conferencing Platform: A Comprehensive Zoom Clone with Modern Features
+
+**Project Overview**  
+This project replicates the widely used Zoom video conferencing tool, leveraging the latest **Next.js** and **TypeScript** technologies. It enables users to log in securely, create meetings, and access a range of meeting functionalities, including recording, screen sharing, and participant management. With a focus on security and real-time communication, this platform provides a seamless video conferencing experience.
+
+**Core Functionality**  
+- **Authentication with Clerk:** Implements robust authentication and authorization features, allowing users to securely log in via social sign-on or traditional methods. Permissions and access levels are enforced within the platform.
+- **Meeting Creation & Management:** Users can create, join, and manage meetings with full control over their camera and microphone settings.
+- **Meeting Controls:** Offers a range of meeting controls, including recording, emoji reactions, screen sharing, muting/unmuting, sound adjustments, grid layouts, and participant management (pinning, muting, blocking, and more).
+- **Future Meeting Scheduling:** Allows users to schedule meetings for a later date and share links for future access.
+- **Recorded Meetings:** Provides access to recorded past meetings for review or sharing.
+- **Personal Room:** Each user has a dedicated personal room with a unique link for instant meetings.
+
+**Technology Stack**  
+- **Frontend Framework:** Built with Next.js and TypeScript for a fast, scalable, and responsive frontend.
+- **UI/UX:** Designed with Tailwind CSS and shadcn for a sleek, modern, and responsive design across devices.
+- **Real-time Functionality:** Integrated with the getstream SDK for secure and real-time communication during meetings.
+- **Authentication Service:** Uses Clerk for user authentication and authorization.
+- **Additional Libraries:** Includes advanced functionality like screen sharing and recording.
+
+**Impact and Goals**  
+This project showcases the ability to build a fully functional, secure, and scalable video conferencing platform. By utilizing cutting-edge technologies, it offers a user-friendly interface and rich feature set, ensuring a robust and reliable conferencing experience.
+
+**Conclusion**  
+The platform is a testament to the potential of combining **Next.js**, **TypeScript**, and modern libraries like **Clerk** and **getstream** to create dynamic and scalable applications. Its secure and feature-rich design makes it an excellent Zoom alternative.`,
+  
+features: [
+  'Authentication with Clerk',
+  'Meeting Creation & Management',
+  'Meeting Controls (Recording, Screen Sharing, etc.)',
+  'Future Meeting Scheduling',
+  'Recorded Meetings Access',
+  'Personal Room with Unique Link'
+],
+
+challenges: 'The primary challenge was ensuring secure real-time communication and incorporating multiple complex features like recording, screen sharing, and participant management while maintaining high performance and responsiveness. These challenges were met through careful architecture and integration of robust technologies such as getstream and Clerk.',
+
+  githubLink: 'https://github.com/hirushan2001/MeetHub.git',
   // websiteLink: 'https://gemini-clone-nine-pied.vercel.app/'
 },
 
